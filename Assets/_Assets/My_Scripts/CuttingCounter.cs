@@ -5,7 +5,7 @@ using UnityEngine;
 public class CuttingCounter : BaseCounter, IkithchenObjectParent
 {
     //[SerializeField] CuttingRecipeSO[] cuttingRecipeSOArray;
-    [SerializeField] KitchenObjectSO cuttingOjectSO;
+    [SerializeField] KitchenObjectSO[] kitchenObjectSOArray;
   
     
   
@@ -41,19 +41,24 @@ public class CuttingCounter : BaseCounter, IkithchenObjectParent
 
      }
 
-   
-public override void InteractAlter(NewPlayer newPlayer){
-    if (!HasKitchenObject())
-    {
-      GetKitchenObject().OnDestroy();  
-      Transform KitchenObjectTransfrom =Instantiate(cuttingOjectSO.counterObject);   
-      KitchenObject kitchenObject = KitchenObjectTransfrom.GetComponent<KitchenObject>();  
-      
-      
-      
-      }
+     public override void InteractAlter(NewPlayer newPlayer){
+         if(HasKitchenObject()){
+                KitchenObjectSO outputKitchenObjectSO = GetOutPutForInput(GetKitchenObject().GetKitchenObjectSO());
+                GetKitchenObject().OnDestroy();
+                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO,this);
 
-  
+                 
+            }
+     }
+   
+
+    private KitchenObjectSO GetOutPutForInput(KitchenObjectSO inputKitchenObjectSO){
+        foreach(CuttingRecipeSO cuttingRecipeSO in cutkitcheObjectSOArray){
+            if(cuttingRecipeSO.input == inputKitchenObjectSO){
+                return cuttingRecipeSO.output;
+            }
+        }
+        return null;
+    }
 }
-    
-}
+//code is not completed yet
