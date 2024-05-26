@@ -17,12 +17,11 @@ public class ContainerCounter : BaseCounter
  [SerializeField] KitchenObjectSO kitchenObjectSO;
 
      public  override void Interact(NewPlayer newPlayer){
-         
+          //
       
      if(!newPlayer.HasKitchenObject()) {
 
-       Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.counterObject).transform;
-         kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(newPlayer);
+      KitchenObject.SpwanKitchenObject(kitchenObjectSO, newPlayer);
         
         OnGrabingObject?.Invoke(this, EventArgs.Empty);
          

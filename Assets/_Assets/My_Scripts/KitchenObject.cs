@@ -44,6 +44,13 @@ private IkithchenObjectParent kitchenObjectParent;
         
      }
        
+       public static KitchenObject SpwanKitchenObject(KitchenObjectSO kitchenObjectSO, IkithchenObjectParent kitchenObjectParent){
+           Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.counterObject);
+           KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
+           
+           kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
+           return kitchenObject;
+       }
 
 
 }

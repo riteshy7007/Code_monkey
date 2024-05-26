@@ -212,7 +212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectHoldPoint: {fileID: 607085081}
-  cuttingOjectSO: {fileID: 11400000, guid: 8e3040d12ea6e84479bd7abf1f0fcb6d, type: 2}
+  cuttingRecipeSOArray:
+  - {fileID: 11400000, guid: f921a5042e906c448a6895b148749713, type: 2}
+  - {fileID: 11400000, guid: ec454cd1e6e688446be75f1993ac9c12, type: 2}
+  - {fileID: 11400000, guid: e40ec619e351af442a510b68f2cd4c09, type: 2}
 --- !u!1001 &104326823
 PrefabInstance:
   m_ObjectHideFlags: 0
