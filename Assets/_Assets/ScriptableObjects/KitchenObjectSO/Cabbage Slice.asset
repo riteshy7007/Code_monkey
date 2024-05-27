@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cabbage Slice
   m_EditorClassIdentifier: 
   counterObject: {fileID: 4801610144016564006, guid: 55e27750dd3335541bb07a9a30f30edc, type: 3}
-  objectName: CabbageSlice
-  objectSprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
+  objectName: Cabbage slice
+  objectSprite: {fileID: 21300000, guid: e1c23b5aded59d84da30738d3267a6c9, type: 3}

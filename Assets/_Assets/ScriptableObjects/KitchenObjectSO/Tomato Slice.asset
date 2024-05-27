@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b754402778ee944b757da6ad3f7a6d, type: 3}
-  m_Name: TomatoSlice
+  m_Name: Tomato Slice
   m_EditorClassIdentifier: 
   counterObject: {fileID: 4801610144016564006, guid: e582866fa7b63ae4d873d3a8556ee9bb, type: 3}
-  objectName: Tomato2
+  objectName: sliceee
   objectSprite: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}

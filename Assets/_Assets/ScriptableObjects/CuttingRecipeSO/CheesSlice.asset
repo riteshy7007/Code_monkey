@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3466732bcf1068c42a69e5452caa0487, type: 3}
-  m_Name: TomatoSliceRecipe
+  m_Name: CheesSlice
   m_EditorClassIdentifier: 
-  InputKitchenObjectSOs: {fileID: 11400000, guid: 7d02121e9c03f0e42a81c74990396aa2, type: 2}
-  OutputKitchenObjectSO: {fileID: 11400000, guid: 8e3040d12ea6e84479bd7abf1f0fcb6d, type: 2}
+  input: {fileID: 11400000, guid: e406a4a3e035fcc40b87a8221c0d6f08, type: 2}
+  output: {fileID: 11400000, guid: 77c44d1bf1fd92e44849589fe81768d3, type: 2}

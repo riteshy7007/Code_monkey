@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cheese Slice
   m_EditorClassIdentifier: 
   counterObject: {fileID: 4801610144016564006, guid: 48958bfe9e5826f42a9865cba1b7432b, type: 3}
-  objectName: CheeseSlice
-  objectSprite: {fileID: 21300000, guid: 549cb4f2b86d1b84d8cd41c1cfde26c8, type: 3}
+  objectName: ' slice'
+  objectSprite: {fileID: 21300000, guid: da2d04fe27b94e34ea0b624569b48a6f, type: 3}

@@ -7,5 +7,6 @@ public class CuttingRecipeSO : ScriptableObject
 {
     [SerializeField] public KitchenObjectSO input;
     [SerializeField] public KitchenObjectSO output;
+    public int cuttingTime;
     
 }

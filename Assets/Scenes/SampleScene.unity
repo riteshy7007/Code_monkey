@@ -213,9 +213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHoldPoint: {fileID: 607085081}
   cuttingRecipeSOArray:
-  - {fileID: 11400000, guid: f921a5042e906c448a6895b148749713, type: 2}
-  - {fileID: 11400000, guid: ec454cd1e6e688446be75f1993ac9c12, type: 2}
-  - {fileID: 11400000, guid: e40ec619e351af442a510b68f2cd4c09, type: 2}
+  - {fileID: 11400000, guid: da92050077869874eaaad7f00e89416f, type: 2}
+  - {fileID: 11400000, guid: df4dfaf1567cca54ea1a0ae34d73985e, type: 2}
+  - {fileID: 11400000, guid: 3b23323ffa3096841bdc125dce9b16ab, type: 2}
 --- !u!1001 &104326823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1708,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.303
       objectReference: {fileID: 0}
+    - target: {fileID: 4816798291926880647, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6155885921624660098, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1781,7 +1785,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4816798291926880647, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7586178669899123168, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}

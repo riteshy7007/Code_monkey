@@ -12,14 +12,19 @@ public class CuttingCounter : BaseCounter, IkithchenObjectParent
 
 
 
-
+     int cuttingProgress;
 
      public override void Interact(NewPlayer newPlayer){
         if (!HasKitchenObject())
         {
           if(newPlayer.HasKitchenObject()){
+            if(HasReceipeWitgInput(newPlayer.GetKitchenObject().GetKitchenObjectSO())){
+                //player has kitchen object
+                newPlayer.GetKitchenObject().SetKitchenObjectParent(this);
+               
             //player has kitchen object
-              newPlayer.GetKitchenObject().SetKitchenObjectParent(this);
+             
+              cuttingProgress = 0;
           }else{
               Debug.LogError("No kitchen object to transfer");
           }
@@ -34,19 +39,29 @@ public class CuttingCounter : BaseCounter, IkithchenObjectParent
             }
          
       
-    
+        }
      }
+    }
+
+    private bool HasReceipeWitgInput(KitchenObjectSO input){
+        foreach(CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray){
+            if(cuttingRecipeSO.input == input){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
-
-     }
 
      public override void InteractAlter(NewPlayer newPlayer){
-         if(HasKitchenObject()){
+         if(HasKitchenObject()&& HasReceipeWitgInput(GetKitchenObject().GetKitchenObjectSO())){
                
                KitchenObjectSO outputKithcenObjectSO = GetOutputforInput(GetKitchenObject().GetKitchenObjectSO()); 
+                cuttingProgress++;
                 GetKitchenObject().OnDestroy();
                KitchenObject.SpwanKitchenObject(outputKithcenObjectSO, this);
+               
 
                 
 

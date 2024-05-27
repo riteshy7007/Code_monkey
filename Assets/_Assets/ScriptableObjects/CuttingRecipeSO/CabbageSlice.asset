@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3466732bcf1068c42a69e5452caa0487, type: 3}
-  m_Name: CheeseSliceRecipe
+  m_Name: CabbageSlice
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  output: {fileID: 0}
+  input: {fileID: 11400000, guid: 391a872a6cc771142ad9f0252f546ed7, type: 2}
+  output: {fileID: 11400000, guid: c424fda0b523e8049915dc1adcf272a5, type: 2}
