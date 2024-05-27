@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CuttingCounter : BaseCounter, IkithchenObjectParent
 {
-    //[SerializeField] CuttingRecipeSO[] cuttingRecipeSOArray;
+     public event EventHandler OnCutObject;
+     public event EventHandler<CuttingProgressChangeEventArgs> OnCuttingProgressChange;
+     public class CuttingProgressChangeEventArgs : EventArgs{
+         public float progressNormalized;
+     }
+
+
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
   
     
@@ -22,9 +29,11 @@ public class CuttingCounter : BaseCounter, IkithchenObjectParent
                 //player has kitchen object
                 newPlayer.GetKitchenObject().SetKitchenObjectParent(this);
                
-            //player has kitchen object
-             
+            
+             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
               cuttingProgress = 0;
+              OnCuttingProgressChange?.Invoke(this, new CuttingProgressChangeEventArgs{
+                progressNormalized = (float)cuttingProgress/cuttingRecipeSO.cuttingTime});
           }else{
               Debug.LogError("No kitchen object to transfer");
           }
@@ -44,39 +53,55 @@ public class CuttingCounter : BaseCounter, IkithchenObjectParent
     }
 
     private bool HasReceipeWitgInput(KitchenObjectSO input){
-        foreach(CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray){
-            if(cuttingRecipeSO.input == input){
-                return true;
-            }
-        }
-        return false;
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(input);
+        
+        return cuttingRecipeSO != null;
     }
 
 
 
      public override void InteractAlter(NewPlayer newPlayer){
          if(HasKitchenObject()&& HasReceipeWitgInput(GetKitchenObject().GetKitchenObjectSO())){
-               
-               KitchenObjectSO outputKithcenObjectSO = GetOutputforInput(GetKitchenObject().GetKitchenObjectSO()); 
-                cuttingProgress++;
+               cuttingProgress++;
+                OnCutObject?.Invoke(this, EventArgs.Empty);
+               CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                
+                OnCuttingProgressChange?.Invoke(this, new CuttingProgressChangeEventArgs{
+                progressNormalized = (float)cuttingProgress/cuttingRecipeSO.cuttingTime
+                });
+
+              if(cuttingProgress >= cuttingRecipeSO.cuttingTime)
+              {KitchenObjectSO outputKithcenObjectSO = GetOutputforInput(GetKitchenObject().GetKitchenObjectSO()); 
+                
                 GetKitchenObject().OnDestroy();
                KitchenObject.SpwanKitchenObject(outputKithcenObjectSO, this);
                
 
-                
+                } 
 
                  
             }
      }
 
      private KitchenObjectSO GetOutputforInput(KitchenObjectSO input){
-         foreach(CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray){
-             if(cuttingRecipeSO.input == input){
-                 return cuttingRecipeSO.output;
-             }
-         }
-         return null;
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(input);
+
+        if(cuttingRecipeSO !=null){
+            return cuttingRecipeSO.output;
+        }else{
+            return null;
+        }
      }
+        private CuttingRecipeSO GetCuttingRecipeSOWithInput(KitchenObjectSO input){
+            foreach(CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray){
+                if(cuttingRecipeSO.input == input){
+                    return cuttingRecipeSO;
+                }
+            }
+            return null;
+        }
+
+        
    
 
     
