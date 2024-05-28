@@ -37,7 +37,9 @@ public Transform GetKitchenObjectTransform(){
      public bool  HasKitchenObject(){
          return kitchenObject != null;
      }
-
+    public void DestroyKitchenObject(){
+        Destroy(kitchenObject.gameObject);
+    }
 
 
 
