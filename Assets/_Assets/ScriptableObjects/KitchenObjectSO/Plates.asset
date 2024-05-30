@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95082e57f0d898849b16c0adcaab1079, type: 3}
-  m_Name: Frying Recipe SO
+  m_Script: {fileID: 11500000, guid: 92b754402778ee944b757da6ad3f7a6d, type: 3}
+  m_Name: Plates
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 255724e2bc8452246b8a137aaeaf4a56, type: 2}
-  output: {fileID: 11400000, guid: 1796e2f52554d894892f6023d21d7075, type: 2}
-  fryingmaxTime: 4
+  counterObject: {fileID: 4801610144016564006, guid: fc956e15e3054af4eb5ccfe95074eaf6, type: 3}
+  objectName: Plate
+  objectSprite: {fileID: 21300000, guid: 3928afb5321bb3d489bbd4ac581b29a2, type: 3}

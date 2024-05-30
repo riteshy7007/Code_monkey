@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35898390a4d70c45b89a09e1d1619ad, type: 3}
-  m_Name: Burning Recipe SO
+  m_Script: {fileID: 11500000, guid: c8aa35e9fc65ea14e849a49e03ac2c44, type: 3}
+  m_Name: New Burning Recipe SO
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 1796e2f52554d894892f6023d21d7075, type: 2}
-  output: {fileID: 11400000, guid: 4efea5d9981fdae46a19b9348aec8d20, type: 2}
-  buringmaxTime: 4
+  output: {fileID: 11400000, guid: 848acabbe52aed44b914c2a1a22c2685, type: 2}
+  buringmaxTime: 5

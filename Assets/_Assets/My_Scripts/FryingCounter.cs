@@ -1,149 +1,139 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FryingCounter : BaseCounter
 {
-    public event EventHandler OnCutObject;
+    private enum State{
 
-    [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
-    [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
 
-    private FryingRecipeSO fryingRecipeSO;
-    private BurningRecipeSO burningRecipeSO;
-
-    private enum State
-    {
         Idle,
         Frying,
         Fried,
-        Burnt
+        Burnt,
+
     }
 
+    [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
+    [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
+     private FryingRecipeSO fryingRecipeSO;
+     private BurningRecipeSO burningRecipeSO;
+    
     private State state;
-    private float fryingTimer;
-    private float burningTimer;
+     
 
-    void Start()
-    {
-        state = State.Idle;
-    }
+private float fryingTime;
+private float burningTime;
 
-    void Update()
-    {
-        switch (state)
-        {
-            case State.Idle:
-                // Do nothing
-                break;
-            case State.Frying:
-                UpdateFrying();
-                break;
-            case State.Fried:
-                UpdateFried();
-                break;
-            case State.Burnt:
-                // Do something here if needed
-                break;
-        }
-    }
+void Start()
+{
+    state = State.Idle;
+    
+}
+void Update(){
+    if(HasKitchenObject()){
+    switch(state){
+        case State.Idle:
+        //do nothing
+            break;
+        case State.Frying:
+        fryingTime += Time.deltaTime;
+         if(fryingTime> fryingRecipeSO.fryingmaxTime){
+            GetKitchenObject().OnDestroy();
+             KitchenObject.SpwanKitchenObject(fryingRecipeSO.output, this);
 
-    private void UpdateFrying()
-    {
-        if (HasKitchenObject())
-        {
-            fryingTimer += Time.deltaTime;
-            if (fryingTimer >= fryingRecipeSO.fryingmaxTime)
-            {
-                GetKitchenObject().OnDestroy();
-                KitchenObject.SpwanKitchenObject(fryingRecipeSO.output, this);
-                Debug.Log("Frying RecipeSO output: " + fryingRecipeSO.output.name);
-
-                state = State.Fried; // Transition to Fried state
-
-                burningTimer = 0f;
-                burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            BurningRecipeSO burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            state = State.Fried;
+            burningTime = 0;
             }
+            // Ensure burningRecipeSO is not null
+            break;
+        case State.Fried:
+        
+        burningTime += Time.deltaTime;
+        
+        if(burningTime> burningRecipeSO.burningmaxTime){
+            
+            GetKitchenObject().OnDestroy();
+            KitchenObject.SpwanKitchenObject(burningRecipeSO.output, this);
+            state = State.Burnt;
+            Debug.Log("Burnt");
         }
-    }
-
-    private void UpdateFried()
-    {
-        if (HasKitchenObject())
-        {
-            burningTimer += Time.deltaTime;
-            if (burningTimer >= burningRecipeSO.buringmaxTime)
-            {
-                GetKitchenObject().OnDestroy();
-                KitchenObject.SpwanKitchenObject(burningRecipeSO.output, this);
-                Debug.Log("Burning RecipeSO output: " + burningRecipeSO.output.name);
-
-                state = State.Burnt; // Transition to Burnt state
-            }
+            break;
+        case State.Burnt:
+            break;
         }
-    }
+    Debug.Log(state);
+    }   
+}
 
-    public override void Interact(NewPlayer newPlayer)
-    {
+
+    public override void Interact(NewPlayer newPlayer){
         if (!HasKitchenObject())
         {
-            if (newPlayer.HasKitchenObject())
-            {
-                if (HasRecipeWithInput(newPlayer.GetKitchenObject().GetKitchenObjectSO()))
-                {
-                    // Player has kitchen object
-                    newPlayer.GetKitchenObject().SetKitchenObjectParent(this);
-
-                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
-                    state = State.Frying; // Set to Frying state
-                    fryingTimer = 0f;
-
-                    Debug.Log("Transition to Frying state with " + GetKitchenObject().GetKitchenObjectSO().name);
-                }
-                else
-                {
-                    Debug.LogError("No valid recipe for the provided kitchen object");
-                }
-            }
-        }
-        else
-        {
-            if (!newPlayer.HasKitchenObject())
-            {
-                // Player has no kitchen object
+          if(newPlayer.HasKitchenObject()){
+            if(HasReceipeWitgInput(newPlayer.GetKitchenObject().GetKitchenObjectSO())){
+                //player has kitchen object
+                newPlayer.GetKitchenObject().SetKitchenObjectParent(this);
+                fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                state = State.Frying;
+                fryingTime = 0;
+               
+            
+             
+          }else{
+              Debug.LogError("No kitchen object to transfer");
+          }
+            
+          
+        }else{
+            if(newPlayer.HasKitchenObject()){
+                //player has kitchen object
+            }else{
+                //player has no kitchen object
                 GetKitchenObject().SetKitchenObjectParent(newPlayer);
-                state = State.Idle; // Reset state to Idle
-
-                Debug.Log("Transition back to Idle state");
             }
+         
+      
         }
+     }
     }
 
-    private bool HasRecipeWithInput(KitchenObjectSO input)
-    {
-        return GetFryingRecipeSOWithInput(input) != null;
+
+private bool HasReceipeWitgInput(KitchenObjectSO input){
+        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(input);
+        
+        return fryingRecipeSO != null;
     }
 
-    private FryingRecipeSO GetFryingRecipeSOWithInput(KitchenObjectSO input)
-    {
-        foreach (FryingRecipeSO fryingRecipeSO in fryingRecipeSOArray)
-        {
-            if (fryingRecipeSO.input == input)
-            {
-                return fryingRecipeSO;
+private KitchenObjectSO GetOutputforInput(KitchenObjectSO input){
+        FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(input);
+
+        if(fryingRecipeSO !=null){
+            return fryingRecipeSO.output;
+        }else{
+            return null;
+        }
+     }
+        private FryingRecipeSO GetFryingRecipeSOWithInput(KitchenObjectSO input){
+            foreach(FryingRecipeSO fryingRecipeSO in fryingRecipeSOArray){
+                if(fryingRecipeSO.input == input){
+                    return fryingRecipeSO;
+                }
             }
+            return null;
         }
-        return null;
-    }
 
-    private BurningRecipeSO GetBurningRecipeSOWithInput(KitchenObjectSO input)
-    {
-        foreach (BurningRecipeSO burningRecipeSO in burningRecipeSOArray)
-        {
-            if (burningRecipeSO.input == input)
-            {
-                return burningRecipeSO;
+         private BurningRecipeSO GetBurningRecipeSOWithInput(KitchenObjectSO input){
+            foreach(BurningRecipeSO burningRecipeSO in burningRecipeSOArray){
+                if(burningRecipeSO.input == input){
+                    return burningRecipeSO;
+                }
             }
+            return null;
         }
-        return null;
-    }
+ 
+ 
+
+
 }

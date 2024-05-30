@@ -390,7 +390,7 @@ MonoBehaviour:
   fryingRecipeSOArray:
   - {fileID: 11400000, guid: 867207908bb0046468dcde20d0d369d9, type: 2}
   burningRecipeSOArray:
-  - {fileID: 11400000, guid: 3097f703d83415540a044166046b7acc, type: 2}
+  - {fileID: 11400000, guid: b0adc7294d8df564f83c952cdab58954, type: 2}
 --- !u!1 &226813789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7492085192550938132, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
@@ -619,6 +619,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cuttingCounter: {fileID: 89550699}
+--- !u!1001 &341397153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.459
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000058114523
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 590234607684325414, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622021029522362413, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: m_Name
+      value: PlateCounter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
 --- !u!1001 &411733674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3586,7 +3643,7 @@ PrefabInstance:
     - target: {fileID: 6423894044945277439, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
       propertyPath: baseCounter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 202140985}
     - target: {fileID: 6658342923924163271, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
       propertyPath: m_Name
       value: StoveCounter
@@ -3718,3 +3775,4 @@ SceneRoots:
   - {fileID: 434487097}
   - {fileID: 1836549307}
   - {fileID: 1981686657}
+  - {fileID: 341397153}
