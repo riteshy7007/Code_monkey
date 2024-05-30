@@ -369,6 +369,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &202140981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6658342923924163271, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+  m_PrefabInstance: {fileID: 1981686657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &202140985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202140981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af4b6eff49e9a84ea819c3099116349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectHoldPoint: {fileID: 427324572}
+  fryingRecipeSOArray:
+  - {fileID: 11400000, guid: 867207908bb0046468dcde20d0d369d9, type: 2}
+  burningRecipeSOArray:
+  - {fileID: 11400000, guid: 3097f703d83415540a044166046b7acc, type: 2}
 --- !u!1 &226813789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7492085192550938132, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
@@ -657,6 +679,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2049213889}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
+--- !u!4 &427324572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 357329654060152318, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+  m_PrefabInstance: {fileID: 1981686657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &434487093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,6 +3531,75 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da92050077869874eaaad7f00e89416f, type: 2}
   - {fileID: 11400000, guid: df4dfaf1567cca54ea1a0ae34d73985e, type: 2}
   - {fileID: 11400000, guid: 3b23323ffa3096841bdc125dce9b16ab, type: 2}
+--- !u!1001 &1981686657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 357329654060152318, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999772
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0067551434
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.774
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815846822485560012, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423894044945277439, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: baseCounter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658342923924163271, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      propertyPath: m_Name
+      value: StoveCounter
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8563198937389244242, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6658342923924163271, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 202140985}
+  m_SourcePrefab: {fileID: 100100000, guid: 4edf1b9488cdf4b4298571751d0615cd, type: 3}
 --- !u!1 &2029397911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,3 +3717,4 @@ SceneRoots:
   - {fileID: 1931720173}
   - {fileID: 434487097}
   - {fileID: 1836549307}
+  - {fileID: 1981686657}
