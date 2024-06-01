@@ -194,6 +194,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c047f233f85f9419cda6e072e6e93b, type: 3}
+--- !u!114 &57922439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3494974679779455005, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+  m_PrefabInstance: {fileID: 341397153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7993abb6e27bf2b4d9e8536f033639a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61985812 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8882163284253059496, guid: 18cc68c8d72832f4b9455175596e7a96, type: 3}
@@ -671,10 +682,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlateCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 3494974679779455005, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      propertyPath: plateKitchenObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f429ea9731546e344a07428619121f82, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6405250500260188562, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2035259334}
   m_SourcePrefab: {fileID: 100100000, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
 --- !u!1001 &411733674
 PrefabInstance:
@@ -3365,6 +3383,11 @@ Transform:
   - {fileID: 269971535}
   m_Father: {fileID: 1228330926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1881698391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5625208662943297300, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+  m_PrefabInstance: {fileID: 341397153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1882722189
 GameObject:
   m_ObjectHideFlags: 3
@@ -3725,6 +3748,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2035259332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6405250500260188562, guid: c58f17aa54464014c893c5ec95a8ddf4, type: 3}
+  m_PrefabInstance: {fileID: 341397153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035259334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035259332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d4a1151089b31419ebf27ec6a3aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 1881698391}
+  visualPrefab: {fileID: 3812876574508226176, guid: c0c9afd619b40914a8f625c0535e2284, type: 3}
+  platesCounter: {fileID: 57922439}
 --- !u!1 &2049213886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}

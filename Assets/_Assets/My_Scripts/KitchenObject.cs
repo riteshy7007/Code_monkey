@@ -23,7 +23,7 @@ private IkithchenObjectParent kitchenObjectParent;
        
        this.kitchenObjectParent = kitchenObjectParent;
        if(kitchenObjectParent.HasKitchenObject()){
-           Debug.LogError("KitchenObjectParent already has a kitchen object");
+           
        }
        kitchenObjectParent.SetKitechenObject(this);
 
